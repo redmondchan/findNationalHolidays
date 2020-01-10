@@ -1,3 +1,5 @@
+//I'm thinking about working on a personal project that involves personal holidays. I found an API that would give me about 378 holidays in USA but I only need the national holidays. This is just to help me get an array of only the national holidays.
+
 let jsonResponse = {
   holidays: [
     {
@@ -47,4 +49,16 @@ let jsonResponse = {
   ]
 }
 
-console.log(jsonResponse)
+
+const findNationalHolidays = (object) => {
+  let nationalHolidays = []
+
+  for(let i = 0; i < object.holidays.length; i++){
+    if(object.holidays[i].type.includes("National holiday")){
+      nationalHolidays.push(object.holidays[i])
+    }
+  }
+  return nationalHolidays
+}
+
+findNationalHolidays(jsonResponse)
